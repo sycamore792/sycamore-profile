@@ -3,6 +3,7 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { ScrollReveal } from "@/components/scroll-reveal"
+import { TerminalLoader } from "@/components/ui/terminal-loader"
 
 export function AboutSection() {
   const interests = [
@@ -27,8 +28,18 @@ export function AboutSection() {
             </div>
           </ScrollReveal>
 
+          <ScrollReveal animation="fade-up" delay={200}>
+            <div className="flex justify-center mb-12">
+              <TerminalLoader 
+                text="whoami && echo 'Sycamore'" 
+                width={400}
+                height={180}
+              />
+            </div>
+          </ScrollReveal>
+
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <ScrollReveal animation="fade-right" delay={200}>
+            <ScrollReveal animation="fade-right" delay={400}>
               <div className="space-y-6">
                 <div className="space-y-4">
                   <h3 className="text-2xl font-semibold">Hello, I'm Sycamore! 👋</h3>
@@ -57,7 +68,7 @@ export function AboutSection() {
               </div>
             </ScrollReveal>
 
-            <ScrollReveal animation="fade-left" delay={400}>
+            <ScrollReveal animation="fade-left" delay={600}>
               <div className="space-y-6">
                 <Card className="border-0 shadow-lg">
                   <CardContent className="p-6">
@@ -110,6 +121,8 @@ export function AboutSection() {
               </div>
             </ScrollReveal>
           </div>
+
+        
         </div>
       </div>
     </section>
