@@ -3,13 +3,14 @@ import { BlogPost } from "@/components/blog/blog-post"
 import { getBlogPost } from "@/lib/blog"
 
 interface BlogPageProps {
-  params: {
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
 export async function generateMetadata({ params }: BlogPageProps) {
-  const post = getBlogPost(params.slug)
+  const { slug } = await params
+  const post = getBlogPost(slug)
   
   if (!post) {
     return {
@@ -23,8 +24,9 @@ export async function generateMetadata({ params }: BlogPageProps) {
   }
 }
 
-export default function BlogPostPage({ params }: BlogPageProps) {
-  const post = getBlogPost(params.slug)
+export default async function BlogPostPage({ params }: BlogPageProps) {
+  const { slug } = await params
+  const post = getBlogPost(slug)
 
   if (!post) {
     notFound()
