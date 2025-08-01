@@ -12,7 +12,7 @@ export function useScrollReveal(options: UseScrollRevealOptions = {}) {
   const { threshold = 0.1, rootMargin = "0px", triggerOnce = true } = options
   
   const [isVisible, setIsVisible] = useState(false)
-  const ref = useRef<HTMLElement>(null)
+  const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
